@@ -7,8 +7,8 @@ on:
       - '!master'
       - '!main'
       - '!development'
-  env:
-    PACKAGE_NAME: "unit4"
+env:
+  PACKAGE_NAME: "unit4"
 jobs:
   build:
 
