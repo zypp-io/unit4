@@ -37,7 +37,8 @@ jobs:
         flake8 src --count --max-complexity=10 --max-line-length=120 --statistics --per-file-ignores="__init__.py:F401"
     - name: Test with pytest
       run: |
-        pytest
+        pip install -r requirements.txt
+        pytest src
     - name: Python Black Check
       run: |
         black --line-length=120 --check src
