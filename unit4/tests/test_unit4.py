@@ -1,6 +1,6 @@
 import logging
 
-from src.tests import unit4
+from unit4.tests import unit4
 
 
 def test_transactions():
