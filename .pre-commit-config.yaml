@@ -28,4 +28,3 @@ repos:
         language: python
         entry: python scripts/check_setupcfg_and_requirementst_equal.py
         pass_filenames: false
-
