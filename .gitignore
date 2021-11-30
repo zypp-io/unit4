@@ -135,4 +135,5 @@ dmypy.json
 dev/
 
 # macOS
-.DS_Store
+.DS_Stor
+/notebooks
