@@ -1,2 +1,6 @@
 pre-commit
 keyvault
+flake8
+black
+pytest
+isort
