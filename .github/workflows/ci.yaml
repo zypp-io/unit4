@@ -1,4 +1,4 @@
-name: Project name # replace me
+name: Unit 4 CI/CD
 
 on:
   push:
