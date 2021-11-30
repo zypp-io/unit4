@@ -7,7 +7,8 @@ on:
       - '!master'
       - '!main'
       - '!development'
-
+env:
+  PACKAGE_NAME: "unit4"
 jobs:
   build:
 
@@ -28,13 +29,13 @@ jobs:
         pip install -r requirements-dev.txt
     - name: Check imports with isort
       run: |
-        isort src/*
+        isort ${{ env.PACKAGE_NAME }}/*
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 ${{ env.PACKAGE_NAME }} --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 src --count --max-complexity=10 --max-line-length=120 --statistics --per-file-ignores="__init__.py:F401"
+        flake8 ${{ env.PACKAGE_NAME }} --count --max-complexity=10 --max-line-length=120 --statistics --per-file-ignores="__init__.py:F401"
     - name: Test with pytest
       env:
         AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
@@ -43,10 +44,10 @@ jobs:
 
       run: |
         pip install -r requirements.txt
-        pytest src
+        pytest ${{ env.PACKAGE_NAME }}
     - name: Python Black Check
       run: |
-        black --line-length=120 --check src
+        black --line-length=120 --check ${{ env.PACKAGE_NAME }}
 
     - name: assert equality between setup.cfg and requirements.txt
       uses: actions/checkout@v2

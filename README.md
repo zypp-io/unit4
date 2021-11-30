@@ -13,9 +13,10 @@ pip install unit4
 ```
 
 ## Usage
-for an extensive list of examples, please refer to the [Unit4 test suite](src/tests/test_unit4.py).
+for an extensive list of examples, please refer to the [Unit4 test suite](unit4/tests/test_unit4.py).
+
 ```python
-from src import Unit4
+from unit4 import Unit4
 
 unit4 = Unit4()
 data = unit4.request_data(endpoint="/api/AdministrationGroupList/All")
