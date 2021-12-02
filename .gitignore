@@ -137,3 +137,4 @@ dev/
 # macOS
 .DS_Stor
 /notebooks
+/data
