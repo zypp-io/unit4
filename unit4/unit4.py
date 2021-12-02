@@ -82,6 +82,46 @@ class Unit4(Base):
 
         return df
 
+    def journals(self, database: str):
+        """
+        Function for getting journal information.
+
+        Parameters
+        ----------
+        database: str
+            name of the administration.
+
+        Returns
+        -------
+
+        """
+
+        data = self.request_data(endpoint=f"api/{database}/JournalInfoList")
+        df = pd.DataFrame(data)
+        df["administration"] = database
+
+        return df
+
+    def journal_types(self, database: str):
+        """
+        Function for getting journal information.
+
+        Parameters
+        ----------
+        database: str
+            name of the administration.
+        Returns
+        -------
+
+        """
+
+        data = self.request_data(endpoint=f"api/{database}/JournalTypeNVL")
+        df = pd.DataFrame(data)
+        df["administration"] = database
+        df.rename(columns={"name": "journalType", "value": "journaltype_description"}, inplace=True)
+
+        return df
+
     def account_categories(self, database: str):
         """
         Function for getting account categories. Thesse categories entail the mapping of accounts in the trial balances
@@ -93,7 +133,30 @@ class Unit4(Base):
             dataset containing Account category names and values.
         """
 
-        data = pd.DataFrame(self.request_data(endpoint=f"api/{database}/AccountCategoryNVL"))
+        data = self.request_data(endpoint=f"api/{database}/AccountCategoryNVL")
+        df = pd.DataFrame(data)
+        df["administration"] = database
+
+        return df
+
+    def transactions_by_year(self, database: str, fiscal_year: int):
+        """
+        Function for pulling the transactions for a certain year.
+        Parameters
+        ----------
+        database: str
+            name of the administration.
+        fiscal_year: int
+            fiscal year for request.
+
+        Returns
+        -------
+        df: pd.DataFrame
+            dataset containing account names and values.
+        """
+        data = pd.DataFrame(
+            self.request_data(endpoint=f"api/{database}/JournalEntryLineInfoList/ByPeriod/{fiscal_year}/0/12")
+        )
         df = pd.DataFrame(data)
         df["administration"] = database
 
