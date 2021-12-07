@@ -6,7 +6,6 @@ Unit4 Multivers API
 ===
 > Package for pulling datasets using the Unit4 Multivers API
 
-[![Downloads](https://pepy.tech/badge/unit4)](https://pepy.tech/project/unit4)
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![PyPI](https://img.shields.io/pypi/v/unit4)](https://pypi.org/project/unit4/)
