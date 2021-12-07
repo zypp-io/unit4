@@ -17,7 +17,7 @@ def test_request_access_token():
 def test_list_administraties():
     logging.info("start test list administrations...")
     data = unit4.request_data(endpoint="api/AdministrationGroupList/All")
-    print(data)
+    print(len(data))
     logging.info("test list administrations finished!")
 
 
@@ -26,7 +26,7 @@ def test_fiscal_year_info():
     administration = "MVL94315"
     fiscal_year = 2021
     data = unit4.request_data(endpoint=f"api/{administration}/FiscalYearInfo/{fiscal_year}")
-    print(data)
+    print(len(data))
     logging.info("test list fiscal year info finished!")
 
 
